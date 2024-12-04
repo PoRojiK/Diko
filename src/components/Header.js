@@ -1,8 +1,8 @@
 import React from 'react';
-import Logo from '/icons/logo.svg';
-import ScaleIcon from '/icons/scale.svg';
-import HeartIcon from '/icons/heart.svg';
-import CartIcon from '/icons/cart.svg';
+
+import HeartIcon from '../icons/heart.svg';
+import CartIcon from '../icons/cart.svg';
+import Logo from '../icons/logo.svg';
 
 const Header = ({ isLoggedIn, user }) => {
   return (
@@ -27,7 +27,7 @@ const Header = ({ isLoggedIn, user }) => {
         ) : (
           <button className="hover:text-gray-300">Войти</button>
         )}
-        <ScaleIcon className="w-6 h-6 fill-current text-white hover:text-gray-300" />
+        
         <HeartIcon className="w-6 h-6 fill-current text-white hover:text-gray-300" />
         <CartIcon className="w-6 h-6 fill-current text-white hover:text-gray-300" />
       </div>
