@@ -9,13 +9,13 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`px-[15%] flex justify-between items-center py-4 shadow-md ${darkTheme ? 'bg-black' : 'bg-white'}`}
+      className={`px-[15%] flex justify-between items-center py-2 shadow-md ${darkTheme ? 'bg-black' : 'bg-white'}`}
     >
       <div className="flex items-center">
       <img 
         src={logo} 
         alt="Logo" 
-        style={{ width: '1rem', height: '1rem' }} 
+        style={{ width: '4rem', height: '3rem' }} 
         className={darkTheme ? 'invert' : ''} 
         />
       </div>
