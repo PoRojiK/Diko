@@ -19,9 +19,8 @@ const App = () => {
         {isDarkMode ? 'Светлая тема' : 'Тёмная тема'}
       </button>
       <Header isLoggedIn={true} user={{ name: 'Григорий', bonuses: 600 }} />
-      <main className="px-[15%] dark:bg-gray-900 dark:text-gray-200">
-        {/* Ваш контент */}
-        <h1>Добро пожаловать в интернет-магазин</h1>
+      <main className="px-[20%] dark:bg-gray-900 dark:text-gray-200">
+
       </main>
     </div>
   );
