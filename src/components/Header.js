@@ -15,7 +15,8 @@ const Navbar = () => {
       <img 
         src={logo} 
         alt="Logo" 
-        className={`w-[1rem] h-[1rem] ${darkTheme ? 'invert' : ''}`} 
+        style={{ width: '1rem', height: '1rem' }} 
+        className={darkTheme ? 'invert' : ''} 
         />
       </div>
       <div className="flex items-center justify-center w-full">
