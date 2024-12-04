@@ -23,7 +23,6 @@ const Header = ({ isLoggedIn, user }) => {
         ) : (
           <button className="hover:text-gray-300">Войти</button>
         )}
-        <img src="./icons/scale.svg" alt="Scale" className="w-6 h-6" />
         <img src="./icons/heart.svg" alt="Heart" className="w-6 h-6" />
         <img src="./icons/cart.svg" alt="Cart" className="w-6 h-6" />
       </div>
