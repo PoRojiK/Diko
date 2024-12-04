@@ -3,7 +3,7 @@ import React from 'react';
 const Header = ({ isLoggedIn, user }) => {
   return (
     <header className="bg-blue-600 p-4 flex justify-between items-center text-white">
-      <img src="/icons/logo.svg" alt="Logo" className="h-8" />
+      <img src="./icons/logo.svg" alt="Logo" className="h-8" />
       <div className="flex items-center bg-blue-800 rounded-md">
         <input
           type="text"
@@ -23,9 +23,9 @@ const Header = ({ isLoggedIn, user }) => {
         ) : (
           <button className="hover:text-gray-300">Войти</button>
         )}
-        <img src="/icons/scale.svg" alt="Scale" className="w-6 h-6" />
-        <img src="/icons/heart.svg" alt="Heart" className="w-6 h-6" />
-        <img src="/icons/cart.svg" alt="Cart" className="w-6 h-6" />
+        <img src="./icons/scale.svg" alt="Scale" className="w-6 h-6" />
+        <img src="./icons/heart.svg" alt="Heart" className="w-6 h-6" />
+        <img src="./icons/cart.svg" alt="Cart" className="w-6 h-6" />
       </div>
     </header>
   );
