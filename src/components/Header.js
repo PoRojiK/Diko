@@ -1,42 +1,110 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Header = ({ isLoggedIn, user }) => {
+const Header = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+  const [darkTheme, setDarkTheme] = useState(false);
+
   return (
-    <header className="px-[15%] bg-blue-600 dark:bg-gray-800 p-4 flex justify-between items-center text-white dark:text-gray-200">
-      <img src="/icons/logo.svg" alt="Logo" className="h-12" />
-      <div className="flex items-center bg-blue-800 dark:bg-gray-700 rounded-md">
-        <input
-          type="text"
-          placeholder="Поиск"
-          className="bg-blue-800 dark:bg-gray-700 text-white px-4 py-2 rounded-l-md focus:outline-none"
+    <nav
+      className={`px-[20%] flex justify-between items-center py-4 shadow-md ${
+        darkTheme ? 'bg-gray-900' : 'bg-white'
+      }`}
+    >
+      <div className="flex items-center pl-4">
+        <div
+          className={`border-2 border-dashed rounded-xl w-8 h-8 ${
+            darkTheme ? 'bg-gray-600' : 'bg-gray-200'
+          }`}
         />
-        <button className="bg-blue-700 dark:bg-gray-600 hover:bg-blue-900 dark:hover:bg-gray-500 px-4 py-2 rounded-r-md">
-          НАЙТИ
+      </div>
+      <div className="flex items-center justify-center w-full">
+        <div className="relative w-1/2">
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Search"
+            className={`w-full py-2 pl-10 text-sm ${
+              darkTheme ? 'text-gray-300' : 'text-gray-700'
+            } rounded-lg focus:outline-none focus:ring-2 ${
+              darkTheme ? 'focus:ring-gray-400' : 'focus:ring-gray-600'
+            } ${darkTheme ? 'bg-gray-800' : 'bg-gray-100'} border border-gray-300`}
+          />
+          <div className="absolute top-1/2 transform -translate-y-1/2 left-3">
+            <div
+              className={`border-2 border-dashed rounded-xl w-4 h-4 ${
+                darkTheme ? 'bg-gray-600' : 'bg-gray-200'
+              }`}
+            />
+          </div>
+        </div>
+      </div>
+      <div className="flex items-center pr-4">
+        <button className="mr-4">
+          <div
+            className={`border-2 border-dashed rounded-xl w-6 h-6 ${
+              darkTheme ? 'bg-gray-600' : 'bg-gray-200'
+            }`}
+          />
+        </button>
+        <button className="mr-4">
+          <div
+            className={`border-2 border-dashed rounded-xl w-6 h-6 ${
+              darkTheme ? 'bg-gray-600' : 'bg-gray-200'
+            }`}
+          />
+        </button>
+        <button
+          className="relative"
+          onMouseEnter={() => setShowProfileDropdown(true)}
+          onMouseLeave={() => setShowProfileDropdown(false)}
+        >
+          <div
+            className={`border-2 border-dashed rounded-xl w-6 h-6 ${
+              darkTheme ? 'bg-gray-600' : 'bg-gray-200'
+            }`}
+          />
+          {showProfileDropdown && (
+            <div
+              className={`absolute top-full right-0 shadow-md p-4 ${
+                darkTheme ? 'bg-gray-900' : 'bg-white'
+              }`}
+            >
+              <p
+                className={`text-sm ${
+                  darkTheme ? 'text-gray-300' : 'text-gray-700'
+                }`}
+              >
+                Бонусы: 
+              </p>
+              <button
+                className={`block w-full py-2 text-sm ${
+                  darkTheme ? 'text-gray-300' : 'text-gray-700'
+                } hover:bg-gray-100`}
+              >
+                View Profile
+              </button>
+              <button
+                className={`block w-full py-2 text-sm ${
+                  darkTheme ? 'text-gray-300' : 'text-gray-700'
+                } hover:bg-gray-100`}
+              >
+                Выйти
+              </button>
+              <button
+                className={`block w-full py-2 text-sm ${
+                  darkTheme ? 'text-gray-300' : 'text-gray-700'
+                }`}
+                onClick={() => setDarkTheme(!darkTheme)}
+              >
+                {darkTheme ? 'Светлая тема' : 'Тёмная тема'}
+              </button>
+            </div>
+          )}
         </button>
       </div>
-      <div className="flex items-center space-x-4">
-        {isLoggedIn ? (
-          <div className="flex items-center space-x-2">
-            <span className="bg-yellow-400 dark:bg-yellow-500 text-blue-600 px-2 py-1 rounded-md font-bold">
-              {user.bonuses}₽
-            </span>
-            <span>{user.name}</span>
-          </div>
-        ) : (
-          <button className="hover:text-gray-300">Войти</button>
-        )}
-        <img
-          src="/icons/heart.svg"
-          alt="Heart"
-          className="w-6 h-6 filter dark:invert"
-        />
-        <img
-          src="/icons/cart.svg"
-          alt="Cart"
-          className="w-6 h-6 filter dark:invert"
-        />
-      </div>
-    </header>
+    </nav>
   );
 };
 
