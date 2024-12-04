@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './components/Header';
 
 function App() {
-  const isLoggedIn = true;
+  const isLoggedIn = false;
   const user = { name: "Григорий", bonuses: 600 };
 
   return (
