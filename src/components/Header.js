@@ -27,7 +27,6 @@ const Header = ({ isLoggedIn, user }) => {
         ) : (
           <button className="hover:text-gray-300">Войти</button>
         )}
-        
         <HeartIcon className="w-6 h-6 fill-current text-white hover:text-gray-300" />
         <CartIcon className="w-6 h-6 fill-current text-white hover:text-gray-300" />
       </div>
