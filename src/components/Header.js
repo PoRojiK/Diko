@@ -3,8 +3,8 @@ import React from 'react';
 
 const Header = ({ isLoggedIn, user }) => {
     return (
-      <header className="bg-blue-600 p-4 flex justify-between items-center text-white">
-        <img src="/icons/logo.svg" alt="Logo" className="h-8" />
+      <header className="px-[15%] bg-blue-600 p-4 flex justify-between items-center text-white">
+        <img src="/icons/logo.svg" alt="Logo" className="h-12" />
         <div className="flex items-center bg-blue-800 rounded-md">
           <input
             type="text"
