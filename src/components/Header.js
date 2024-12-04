@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AiOutlineSearch, AiOutlineHeart, AiOutlineShoppingCart, AiOutlineUser } from 'react-icons/ai';
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
+import logo from './icons/logo.svg';
 
 const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -14,9 +15,7 @@ const Navbar = () => {
       }`}
     >
       <div className="flex items-center">
-        <AiOutlineUser
-          className={`text-2xl ${darkTheme ? 'text-gray-300' : 'text-gray-700'}`}
-        />
+        <img src={logo} alt="Logo" className={`w-8 h-8 ${darkTheme ? 'invert' : ''}`} />
       </div>
       <div className="flex items-center justify-center w-full">
         <div className="relative w-1/2">
@@ -41,12 +40,12 @@ const Navbar = () => {
       <div className="flex items-center">
         <button className="mr-4">
           <AiOutlineHeart
-            className={`text-lg ${darkTheme ? 'text-gray-300' : 'text-gray-700'}`}
+            className={`text-2xl ${darkTheme ? 'text-gray-300' : 'text-gray-700'}`}
           />
         </button>
         <button className="mr-4">
           <AiOutlineShoppingCart
-            className={`text-lg ${darkTheme ? 'text-gray-300' : 'text-gray-700'}`}
+            className={`text-2xl ${darkTheme ? 'text-gray-300' : 'text-gray-700'}`}
           />
         </button>
         <button
@@ -55,37 +54,37 @@ const Navbar = () => {
           onMouseLeave={() => setShowProfileDropdown(false)}
         >
           <AiOutlineUser
-            className={`text-lg ${darkTheme ? 'text-gray-300' : 'text-gray-700'}`}
+            className={`text-2xl ${darkTheme ? 'text-gray-300' : 'text-gray-700'}`}
           />
           {showProfileDropdown && (
             <div
-              className={`absolute top-full right-0 shadow-md p-4 ${
+              className={`absolute top-full right-0 shadow-md p-8 w-64 ${
                 darkTheme ? 'bg-gray-900' : 'bg-white'
               }`}
             >
               <p
-                className={`text-sm ${
+                className={`text-lg ${
                   darkTheme ? 'text-gray-300' : 'text-gray-700'
                 }`}
               >
                 User Bonuses: 100
               </p>
               <button
-                className={`block w-full py-2 text-sm ${
+                className={`block w-full py-4 text-lg ${
                   darkTheme ? 'text-gray-300' : 'text-gray-700'
                 } hover:bg-gray-100`}
               >
                 View Profile
               </button>
               <button
-                className={`block w-full py-2 text-sm ${
+                className={`block w-full py-4 text-lg ${
                   darkTheme ? 'text-gray-300' : 'text-gray-700'
                 } hover:bg-gray-100`}
               >
                 Logout
               </button>
               <button
-                className={`block w-full py-2 text-sm ${
+                className={`block w-full py-4 text-lg ${
                   darkTheme ? 'text-gray-300' : 'text-gray-700'
                 }`}
                 onClick={() => setDarkTheme(!darkTheme)}
@@ -93,14 +92,14 @@ const Navbar = () => {
                 {darkTheme ? (
                   <span className="flex items-center">
                     <MdLightMode
-                      className={`text-lg ${darkTheme ? 'text-gray-300' : 'text-gray-700'} mr-2`}
+                      className={`text-2xl ${darkTheme ? 'text-gray-300' : 'text-gray-700'} mr-2`}
                     />
                     Switch to Light Theme
                   </span>
                 ) : (
                   <span className="flex items-center">
                     <MdDarkMode
-                      className={`text-lg ${darkTheme ? 'text-gray-300' : 'text-gray-700'} mr-2`}
+                      className={`text-2xl ${darkTheme ? 'text-gray-300' : 'text-gray-700'} mr-2`}
                     />
                     Switch to Dark Theme
                   </span>
