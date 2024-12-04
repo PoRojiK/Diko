@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
+import { AiOutlineSearch, AiOutlineHeart, AiOutlineShoppingCart, AiOutlineUser } from 'react-icons/ai';
+import { MdDarkMode, MdLightMode } from 'react-icons/md';
 
-const Header = () => {
+const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const [darkTheme, setDarkTheme] = useState(false);
 
   return (
     <nav
-      className={`px-[20%] flex justify-between items-center py-4 shadow-md ${
+      className={`px-[15%] flex justify-between items-center py-4 shadow-md ${
         darkTheme ? 'bg-gray-900' : 'bg-white'
       }`}
     >
-      <div className="flex items-center pl-4">
-        <div
-          className={`border-2 border-dashed rounded-xl w-8 h-8 ${
-            darkTheme ? 'bg-gray-600' : 'bg-gray-200'
-          }`}
+      <div className="flex items-center">
+        <AiOutlineUser
+          className={`text-2xl ${darkTheme ? 'text-gray-300' : 'text-gray-700'}`}
         />
       </div>
       <div className="flex items-center justify-center w-full">
@@ -31,28 +31,22 @@ const Header = () => {
               darkTheme ? 'focus:ring-gray-400' : 'focus:ring-gray-600'
             } ${darkTheme ? 'bg-gray-800' : 'bg-gray-100'} border border-gray-300`}
           />
-          <div className="absolute top-1/2 transform -translate-y-1/2 left-3">
-            <div
-              className={`border-2 border-dashed rounded-xl w-4 h-4 ${
-                darkTheme ? 'bg-gray-600' : 'bg-gray-200'
-              }`}
-            />
-          </div>
+          <AiOutlineSearch
+            className={`absolute top-1/2 transform -translate-y-1/2 left-3 text-lg ${
+              darkTheme ? 'text-gray-300' : 'text-gray-700'
+            }`}
+          />
         </div>
       </div>
-      <div className="flex items-center pr-4">
+      <div className="flex items-center">
         <button className="mr-4">
-          <div
-            className={`border-2 border-dashed rounded-xl w-6 h-6 ${
-              darkTheme ? 'bg-gray-600' : 'bg-gray-200'
-            }`}
+          <AiOutlineHeart
+            className={`text-lg ${darkTheme ? 'text-gray-300' : 'text-gray-700'}`}
           />
         </button>
         <button className="mr-4">
-          <div
-            className={`border-2 border-dashed rounded-xl w-6 h-6 ${
-              darkTheme ? 'bg-gray-600' : 'bg-gray-200'
-            }`}
+          <AiOutlineShoppingCart
+            className={`text-lg ${darkTheme ? 'text-gray-300' : 'text-gray-700'}`}
           />
         </button>
         <button
@@ -60,10 +54,8 @@ const Header = () => {
           onMouseEnter={() => setShowProfileDropdown(true)}
           onMouseLeave={() => setShowProfileDropdown(false)}
         >
-          <div
-            className={`border-2 border-dashed rounded-xl w-6 h-6 ${
-              darkTheme ? 'bg-gray-600' : 'bg-gray-200'
-            }`}
+          <AiOutlineUser
+            className={`text-lg ${darkTheme ? 'text-gray-300' : 'text-gray-700'}`}
           />
           {showProfileDropdown && (
             <div
@@ -76,7 +68,7 @@ const Header = () => {
                   darkTheme ? 'text-gray-300' : 'text-gray-700'
                 }`}
               >
-                Бонусы: 
+                User Bonuses: 100
               </p>
               <button
                 className={`block w-full py-2 text-sm ${
@@ -90,7 +82,7 @@ const Header = () => {
                   darkTheme ? 'text-gray-300' : 'text-gray-700'
                 } hover:bg-gray-100`}
               >
-                Выйти
+                Logout
               </button>
               <button
                 className={`block w-full py-2 text-sm ${
@@ -98,7 +90,21 @@ const Header = () => {
                 }`}
                 onClick={() => setDarkTheme(!darkTheme)}
               >
-                {darkTheme ? 'Светлая тема' : 'Тёмная тема'}
+                {darkTheme ? (
+                  <span className="flex items-center">
+                    <MdLightMode
+                      className={`text-lg ${darkTheme ? 'text-gray-300' : 'text-gray-700'} mr-2`}
+                    />
+                    Switch to Light Theme
+                  </span>
+                ) : (
+                  <span className="flex items-center">
+                    <MdDarkMode
+                      className={`text-lg ${darkTheme ? 'text-gray-300' : 'text-gray-700'} mr-2`}
+                    />
+                    Switch to Dark Theme
+                  </span>
+                )}
               </button>
             </div>
           )}
@@ -108,4 +114,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navbar;
