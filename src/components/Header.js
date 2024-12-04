@@ -1,9 +1,13 @@
 import React from 'react';
+import Logo from '/icons/logo.svg';
+import ScaleIcon from '/icons/scale.svg';
+import HeartIcon from '/icons/heart.svg';
+import CartIcon from '/icons/cart.svg';
 
 const Header = ({ isLoggedIn, user }) => {
   return (
     <header className="bg-blue-600 p-4 flex justify-between items-center text-white">
-      <img src="./icons/logo.svg" alt="Logo" className="h-8" />
+      <img src={Logo} alt="Logo" className="h-8" />
       <div className="flex items-center bg-blue-800 rounded-md">
         <input
           type="text"
@@ -23,8 +27,9 @@ const Header = ({ isLoggedIn, user }) => {
         ) : (
           <button className="hover:text-gray-300">Войти</button>
         )}
-        <img src="./icons/heart.svg" alt="Heart" className="w-6 h-6" />
-        <img src="./icons/cart.svg" alt="Cart" className="w-6 h-6" />
+        <ScaleIcon className="w-6 h-6 fill-current text-white hover:text-gray-300" />
+        <HeartIcon className="w-6 h-6 fill-current text-white hover:text-gray-300" />
+        <CartIcon className="w-6 h-6 fill-current text-white hover:text-gray-300" />
       </div>
     </header>
   );
