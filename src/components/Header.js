@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AiOutlineSearch, AiOutlineHeart, AiOutlineShoppingCart, AiOutlineUser } from 'react-icons/ai';
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
-import logo from './icons/logo.svg';
+import logo from '../icons/logo.svg';
 
 const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState('');
