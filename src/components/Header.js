@@ -12,7 +12,7 @@ const Navbar = () => {
       className={`px-[15%] flex justify-between items-center py-4 shadow-md ${darkTheme ? 'bg-black' : 'bg-white'}`}
     >
       <div className="flex items-center">
-        <img src={logo} alt="Logo" className={`w-16 h-16 ${darkTheme ? 'invert' : ''}`} />
+        <img src={logo} alt="Logo" className={`w-6 h-6 ${darkTheme ? 'invert' : ''}`} />
       </div>
       <div className="flex items-center justify-center w-full">
         <div className="relative w-1/2">
@@ -67,7 +67,7 @@ const Navbar = () => {
                 Logout
               </button>
               <button
-                className={`block w-full py-4 text-lg ${darkTheme ? 'text-gray-300' : 'text-gray-700'}`}
+                className={`block w-full py-4 text-lg ${darkTheme ? 'text-gray-300' : 'text-gray-700'} hover:bg-gray-100`}
                 onClick={() => setDarkTheme(!darkTheme)}
               >
                 {darkTheme ? 'Switch to Light Theme' : 'Switch to Dark Theme'}
