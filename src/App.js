@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Header from './components/Header';
+import Navbar from './components/Navbar';
 
 
 const App = () => {
   return (
     <div>
-      <Header />
+      <Navbar />
       <main className="px-[20%] dark:bg-gray-900 dark:text-gray-200">
 
       </main>
