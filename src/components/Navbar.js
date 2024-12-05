@@ -8,10 +8,10 @@ import {
 import logo from "../icons/logo.svg";
 import ProfileDropdown from "./ProfileDropdown";
 
-const Navbar = ( ) => {
+const Navbar = ({ darkTheme, setDarkTheme }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
-  const [darkTheme, setDarkTheme] = useState(false);
+
 
   const handleThemeToggle = () => {
     setDarkTheme(!darkTheme);

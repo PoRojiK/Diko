@@ -9,7 +9,7 @@ const banners = [
   { id: 4, image: '/images/banners/banner4.jpg', title: 'Banner 4' },
 ];
 
-const Banner = ( darkTheme ) => {
+const Banner = ( {darkTheme} ) => {
   const [activeBanner, setActiveBanner] = useState(0);
 
   const handleNext = () => {
@@ -40,13 +40,13 @@ const Banner = ( darkTheme ) => {
       <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 flex justify-between p-4">
         <button
           onClick={handlePrev}
-          className={`text-2xl p-2 rounded-full ${isDarkTheme ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'}`}
+          className={`text-2xl p-2 rounded-full ${darkTheme ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'}`}
         >
           <AiOutlineLeft className={`text-3xl ${darkTheme ? "text-gray-300" : "text-gray-700"}`}/>
         </button>
         <button
           onClick={handleNext}
-          className={`text-2xl p-2 rounded-full ${isDarkTheme ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'}`}
+          className={`text-2xl p-2 rounded-full ${darkTheme ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'}`}
         >
           <AiOutlineRight className={`text-3xl ${darkTheme ? "text-gray-300" : "text-gray-700"}`}/>
         </button>
