@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
-import Banner from './components/Banner';
+import Banner from './components/banners/Banner';
 
 
-const App = () => {
+const App = ( darkTheme, setDarkTheme ) => {
   return (
     <div>
       <Navbar />

@@ -8,7 +8,7 @@ import {
 import logo from "../icons/logo.svg";
 import ProfileDropdown from "./ProfileDropdown";
 
-const Navbar = () => {
+const Navbar = ( ) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const [darkTheme, setDarkTheme] = useState(false);
@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`px-[15%] flex justify-between items-center py-2 shadow-md ${
+      className={`px-[21%] flex justify-between items-center py-2 shadow-md ${
         darkTheme ? "bg-black" : "bg-white"
       }`}
     >

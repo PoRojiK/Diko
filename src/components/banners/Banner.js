@@ -1,15 +1,16 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
+
 const banners = [
-  { id: 1, image: 'https://via.placeholder.com/1200x400', title: 'Banner 1' },
-  { id: 2, image: 'https://via.placeholder.com/1200x400', title: 'Banner 2' },
-  { id: 3, image: 'https://via.placeholder.com/1200x400', title: 'Banner 3' },
+  { id: 1, image: '/images/banners/banner1.jpg', title: 'Banner 1' },
+  { id: 2, image: '/images/banners/banner2.jpg', title: 'Banner 2' },
+  { id: 3, image: '/images/banners/banner3.jpg', title: 'Banner 3' },
+  { id: 4, image: '/images/banners/banner4.jpg', title: 'Banner 4' },
 ];
 
-const Banner = () => {
+const Banner = ( darkTheme ) => {
   const [activeBanner, setActiveBanner] = useState(0);
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   const handleNext = () => {
     setActiveBanner((prev) => (prev + 1) % banners.length);
@@ -19,8 +20,13 @@ const Banner = () => {
     setActiveBanner((prev) => (prev - 1 + banners.length) % banners.length);
   };
 
+  useEffect(() => {
+    const intervalId = setInterval(handleNext, 6000);
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
-    <div className="relative w-full h-[400px] overflow-hidden">
+    <div className="relative w-full h-[450px] overflow-hidden">
       {banners.map((banner, index) => (
         <div
           key={banner.id}
@@ -36,14 +42,24 @@ const Banner = () => {
           onClick={handlePrev}
           className={`text-2xl p-2 rounded-full ${isDarkTheme ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'}`}
         >
-          <AiOutlineLeft />
+          <AiOutlineLeft className={`text-3xl ${darkTheme ? "text-gray-300" : "text-gray-700"}`}/>
         </button>
         <button
           onClick={handleNext}
           className={`text-2xl p-2 rounded-full ${isDarkTheme ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'}`}
         >
-          <AiOutlineRight />
+          <AiOutlineRight className={`text-3xl ${darkTheme ? "text-gray-300" : "text-gray-700"}`}/>
         </button>
+      </div>
+      <div className="absolute bottom-0 left-0 w-full flex justify-center p-4">
+        {banners.map((banner, index) => (
+          <div
+            key={banner.id}
+            className={`w-2 h-2 mx-2 rounded-full ${
+              index === activeBanner ? 'bg-white' : 'bg-gray-400'
+            }`}
+          />
+        ))}
       </div>
     </div>
   );
