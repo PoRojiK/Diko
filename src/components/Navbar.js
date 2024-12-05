@@ -71,7 +71,7 @@ const Navbar = () => {
             className={`text-3xl ${darkTheme ? "text-gray-300" : "text-gray-700"}`}
           />
           {showProfileDropdown && (
-            <ProfileDropdown
+            <ProfileDropdown 
               darkTheme={darkTheme}
               handleThemeToggle={handleThemeToggle}
             />

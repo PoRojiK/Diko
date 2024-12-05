@@ -10,7 +10,7 @@ import { FaMoon } from "react-icons/fa";
 const ProfileDropdown = ({ darkTheme, handleThemeToggle }) => {
   return (
     <div
-      className={`absolute top-full right-0 shadow-md p-4 rounded-lg border ${
+      className={`absolute top-full right-0 shadow-md p-4 rounded-lg border z-10 ${
         darkTheme ? "bg-black border-gray-800" : "bg-white border-gray-200"
       } w-64`}
     >
