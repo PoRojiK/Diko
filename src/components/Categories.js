@@ -1,11 +1,11 @@
 import React from "react";
 
 const categories = [
-  { id: 1, title: "Men's Clothing", image: "/images/main_categories/sweetshots.jpg", span: 1 },
-  { id: 2, title: "Women's Clothing", image: "/images/main_categories/hoodie.jpg", span: 2 },
-  { id: 3, title: "Kids' Clothing", image: "/images/main_categories/bombers.jpg", span: 1 },
-  { id: 4, title: "Shoes", image: "/images/main_categories/shirt.jpg", span: 2 },
-  { id: 5, title: "Accessories", image: "/images/main_categories/t-shirts.jpg", span: 2 },
+  { id: 1, title: "Men's Clothing", image: "./images/main_categories/sweetshots.jpg", span: 1 },
+  { id: 2, title: "Women's Clothing", image: "./images/main_categories/hoodie.jpg", span: 2 },
+  { id: 3, title: "Kids' Clothing", image: "./images/main_categories/bombers.jpg", span: 1 },
+  { id: 4, title: "Shoes", image: "./images/main_categories/shirt.jpg", span: 2 },
+  { id: 5, title: "Accessories", image: "./images/main_categories/t-shirts.jpg", span: 2 },
 ];
 
 const CategoryCards = () => {
