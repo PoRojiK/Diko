@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
-
 const banners = [
   { id: 1, image: '/images/banners/banner1.jpg', title: 'Banner 1' },
   { id: 2, image: '/images/banners/banner2.jpg', title: 'Banner 2' },
@@ -9,7 +8,7 @@ const banners = [
   { id: 4, image: '/images/banners/banner4.jpg', title: 'Banner 4' },
 ];
 
-const Banner = ( {darkTheme} ) => {
+const Banner = ( darkTheme) => {
   const [activeBanner, setActiveBanner] = useState(0);
 
   const handleNext = () => {
@@ -26,7 +25,7 @@ const Banner = ( {darkTheme} ) => {
   }, []);
 
   return (
-    <div className="relative w-full h-[450px] overflow-hidden">
+    <div className="relative w-full h-screen md:h-96 overflow-hidden rounded-2xl">
       {banners.map((banner, index) => (
         <div
           key={banner.id}
@@ -34,21 +33,21 @@ const Banner = ( {darkTheme} ) => {
             index === activeBanner ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <img src={banner.image} alt={banner.title} className="w-full h-full object-cover" />
+          <img src={banner.image} alt={banner.title} className="w-full h-full object-cover rounded-2xl" />
         </div>
       ))}
       <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 flex justify-between p-4">
         <button
           onClick={handlePrev}
-          className={`text-2xl p-2 rounded-full ${darkTheme ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'}`}
+          className="text-2xl p-2 rounded-full bg-white text-gray-800"
         >
-          <AiOutlineLeft className={`text-3xl ${darkTheme ? "text-gray-300" : "text-gray-700"}`}/>
+          <AiOutlineLeft className="text-3xl text-gray-700"/>
         </button>
         <button
           onClick={handleNext}
-          className={`text-2xl p-2 rounded-full ${darkTheme ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'}`}
+          className="text-2xl p-2 rounded-full bg-white text-gray-800"
         >
-          <AiOutlineRight className={`text-3xl ${darkTheme ? "text-gray-300" : "text-gray-700"}`}/>
+          <AiOutlineRight className="text-3xl text-gray-700"/>
         </button>
       </div>
       <div className="absolute bottom-0 left-0 w-full flex justify-center p-4">
