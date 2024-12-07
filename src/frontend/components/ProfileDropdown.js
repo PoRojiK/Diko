@@ -1,7 +1,8 @@
 import React from 'react';
 import {
   AiOutlineUser,
-  AiOutlineNotification,
+  AiOutlineBell,
+  AiOutlineTruck,
   AiOutlineSetting,
   AiOutlineLogout,
 } from 'react-icons/ai';
@@ -14,30 +15,45 @@ const ProfileDropdown = ({ darkTheme, handleThemeToggle }) => {
         <div
           className={`absolute  top-full right-0 shadow-md p-4 rounded-lg border z-10 ${currentTheme.input.background} ${currentTheme.input.border} ${currentTheme.text} w-64`}
         >
-          {/* Profile and Notification */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <AiOutlineUser className="text-lg mr-2" />
-              <p className="text-lg">Профиль</p>
-            </div>
-            <AiOutlineNotification className="text-lg" />
+        <div>
+
+        <div className="flex items-center justify-between p-2 rounded-lg">
+          {/* Profile */}
+          <div
+            className={`flex items-center cursor-pointer transition ${currentTheme.text} hover:${currentTheme.textHover}`}
+          >
+            <AiOutlineUser className="text-2xl mr-2" />
+            <span className="text-lg font-medium">Профиль</span>
           </div>
-    
+
+          {/* Notifications */}
+          <button
+            className={`p-2 rounded-lg cursor-pointer flex items-center justify-center transition ${currentTheme.text} hover:bg-gray-200 hover:${currentTheme.textHover}`}
+          >
+            <AiOutlineBell className="text-2xl" />
+          </button>
+        </div>
+
+
+          {/* Delivery */}
+          <div
+            className={`p-2 rounded-lg cursor-pointer flex items-center mt-1 transition ${currentTheme.text} hover:${currentTheme.textHover}`}
+          >
+            <AiOutlineTruck className="text-lg mr-2" />
+            <span className="text-lg ">Доставка</span>
+          </div>
+
           {/* Settings */}
           <div
             className={`p-2 rounded-lg cursor-pointer flex items-center mt-1 transition ${currentTheme.text} hover:${currentTheme.textHover}`}
           >
             <AiOutlineSetting className="text-lg mr-2" />
-            <button className="text-lg">Настройки</button>
+            <span className="text-lg ">Настройки</span>
           </div>
+        </div>
+
     
-          {/* Logout */}
-          <div
-            className={`p-2 rounded-lg cursor-pointer flex items-center mt-1 transition ${currentTheme.text} hover:${currentTheme.textHover}`}
-          >
-            <AiOutlineLogout className="text-lg mr-2" />
-            <button className="text-lg">Выйти</button>
-          </div>
+
     
           {/* Theme Toggle */}
           <li
@@ -75,6 +91,15 @@ const ProfileDropdown = ({ darkTheme, handleThemeToggle }) => {
   ></div>
             </label>
           </li>
+
+          {/* Logout */}
+          <div
+            className={`p-2 rounded-lg cursor-pointer flex items-center mt-1 transition ${currentTheme.text} hover:${currentTheme.textHover}`}
+          >
+            <AiOutlineLogout className="text-lg mr-2" />
+            <button className="text-lg">Выйти</button>
+          </div>
+
         </div>
       );
     };
