@@ -4,6 +4,8 @@ module.exports = {
   safelist: [
     'hover:text-custom-pastelPurple',
     'hover:text-custom-deepBlue',
+    'fontColor:text-custom-black',
+    'fontColor:text-custom-white',
   ],
   theme: {
     extend: {
@@ -21,12 +23,15 @@ module.exports = {
             mixedSurfacePaleGray: "#868686",                   // Бледно-серый || текст неактивных элементов
             lightSilver: "#949494",             // Смешанный светло-серый || текст в графе поиска
             paleGray: "#9d9d9d",              // Бледно-серый || для поверхностей
-            veryLightGray: "#e2e2e2",         // Очень светлый серый || фон карточек
-            silverGray: "#e9e9e9",            // Серебристый светлый (вариант 1)
+
+
             mutedSilver: "#bbbbbb",           // Приглушённый серебристый
             offWhite: "#cccccc",              // Бледно-белый
+            silverGray: "#e9e9e9",            // Серебристый светлый (вариант 1)
+            veryLightGray: "#e2e2e2",         // Очень светлый серый || фон карточек
             paleSilver: "#dddddd",            // Бледный серебристо-голубой
             softSilver: "#f0f0f0",            // Мягкий серебристый (вариант 2)
+            white: "#fafafa",            // Мягкий серебристый (вариант 2)
 
 
 

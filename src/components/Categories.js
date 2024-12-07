@@ -18,7 +18,7 @@ const CategoryCards = () => {
             key={category.id}
             className={`relative ${
               category.span === 2 ? "col-span-2" : "col-span-1"
-            } h-40 sm:h-60 md:h-100 bg-gray-100 overflow-hidden rounded-lg shadow-md`}
+            } h-40 sm:h-60 md:h-100 bg-gray-100 overflow-hidden rounded-lg shadow-2xl`}
           >
             <img
               src={category.image}

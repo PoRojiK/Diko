@@ -13,8 +13,9 @@ const Navbar = ({ darkTheme, handleThemeToggle, currentTheme }) => {
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
 
   return (
+    <div className={` sticky top-0 z-20`}>
     <nav
-      className={`px-[21%] flex justify-between items-center py-2 shadow-lg ${currentTheme.background}`}
+      className={`px-[21%] flex justify-between items-center py-2 shadow-sm ${currentTheme.background}`}
     >
       {/* Logo Section */}
       <div className="flex items-center">
@@ -66,7 +67,11 @@ const Navbar = ({ darkTheme, handleThemeToggle, currentTheme }) => {
           )}
         </button>
       </div>
+      
     </nav>
+    <div className={`absolute top-full left-0 w-full h-2 shadow-2xl`} ></div>
+
+    </div>
   );
 };
 

@@ -1,11 +1,11 @@
 
 export const lightThemeColors = {
-      background: "bg-custom-paleSilver",
+      background: "bg-custom-white",
       text: "text-custom-black",
       input: {
         background: "bg-custom-veryLightGray",
         focusRing: "focus:ring-custom-lightSilver",
-        text: "text-gray-700",
+        text: "text-custom-paleGray",
         border: "border-custom-",
       },
       button: {
@@ -18,16 +18,17 @@ export const lightThemeColors = {
       },
       textHover: "text-custom-deepBlue",
       border: "border-custom-lightSilver",
-      cardsBackground: "bg-custom-paleSilver",
-      mainBackground: "bg-custom-softSilver",
+      cardsBackground: "bg-custom-softSilver",
+      mainBackground: "bg-custom-white",
+      textSecondary: "text-custom-paleGray",
     };
 
 export const darkThemeColors = {
-      background: "bg-custom-black",
-      backgroundSelected: "bg-custom-lightGray",
+      background: "bg-custom-veryDarkGray",
+      backgroundSelected: "bg-custom-",
       text: "text-custom-white",
       input: {
-        background: "bg-custom-mixedDarkGray",
+        background: "bg-custom-darkGray",
         focusRing: "focus:ring-gray-400",
         text: "text-custom-mixedLightGray",
         border: "border-custom-mixedGray",
@@ -42,6 +43,7 @@ export const darkThemeColors = {
       },
       textHover: "text-custom-pastelPurple",
       border: "border-custom-gray",
-      cardsBackground: "bg-custom-darkGray",
-      mainBack: "bg-custom-white",
+      cardsBackground: "bg-custom-mixedSurfaceVeryDarkGray",
+      mainBackground: "bg-custom-veryDarkGray",
+      textSecondary: "text-custom-paleGray",
     };

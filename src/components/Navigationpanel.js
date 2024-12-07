@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const tabs = [
   {
@@ -62,7 +62,7 @@ const tabs = [
     href: '#',
     subcategories: [
       {
-    title: 'ANIME MOOD',
+        title: 'ANIME MOOD',
         href: '#',
         items: [
           { title: 'ЕВАГЕЛИОН', href: '#' },
@@ -93,12 +93,12 @@ const tabs = [
         title: 'КОЛЛАБОРАЦИИ',
         href: '#',
         items: [
-            { title: 'NIKIFILINI', href: 'https://nikifilini.com/' },
-            { title: 'ZAGON', href: 'https://zagonbrand.com/' },
-            { title: 'Skvoff', href: 'https://skvoff.ru/' },
-            { title: 'kiyotaka', href: 'https://www.kiyotaka.ru/' },
-            { title: 'hronika', href: 'https://hronikawear.ru/' },
-            { title: 'snkv', href: 'https://snkv.store/' },
+          { title: 'NIKIFILINI', href: 'https://nikifilini.com/' },
+          { title: 'ZAGON', href: 'https://zagonbrand.com/' },
+          { title: 'Skvoff', href: 'https://skvoff.ru/' },
+          { title: 'kiyotaka', href: 'https://www.kiyotaka.ru/' },
+          { title: 'hronika', href: 'https://hronikawear.ru/' },
+          { title: 'snkv', href: 'https://snkv.store/' },
         ],
       },
     ],
@@ -128,72 +128,89 @@ const tabs = [
     ],
   },
 ];
-
 const Dropdown = ({ currentTheme }) => {
-  const [openTab, setOpenTab] = useState(null); // Tracks the currently open tab.
-
-  return (
-    <div
-      className="w-full relative"
-      onMouseLeave={() => setOpenTab(null)}
-    >
-      {/* Tabs */}
+    const [openTab, setOpenTab] = useState(null);
+    const [showOnScroll, setShowOnScroll] = useState(false);
+  
+    useEffect(() => {
+      const handleScroll = () => {
+        if (window.scrollY > 0) {
+          setShowOnScroll(true);
+        } else {
+          setShowOnScroll(false);
+        }
+      };
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
+  
+    return (
       <div
-        className={`flex justify-center space-x-8 shadow-lg ${currentTheme.cardsBackground}`}
+        className={`w-full relative ${
+          showOnScroll ? 'sticky top-16 left-0 bg-white  z-10' : ''
+        }`}
+        style={{ fontFamily: 'Ubuntu', fontSize: '12px'}}
+        onMouseLeave={() => setOpenTab(null)}
       >
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            className={` my-1 ${currentTheme.text} hover:${currentTheme.textHover} ${
-              openTab === tab.id ? `font-semibold ${currentTheme.textActive}` : ''
-            }`}
-            onMouseEnter={() => setOpenTab(tab.id)} // Opens the specific tab.
-          >
-            {tab.title}
-          </button>
-        ))}
-      </div>
-
-      {/* Dropdown Content */}
-      {openTab &&
-  tabs.find((tab) => tab.id === openTab)?.subcategories?.length > 0 && (
-    <div
-      className={`px-[25%] shadow-md z-20 flex w-full  absolute top-full left-0 ${currentTheme.cardsBackground}`}
-    >
-      {tabs
-        .find((tab) => tab.id === openTab)
-        .subcategories.map((subcategory) => (
-          <div
-            key={subcategory.title}
-            className="py-6 px-16"
-          >
-            {/* Subcategory Title */}
-            <a
-              href={subcategory.href}
-              className={`${currentTheme.text} hover:${currentTheme.textHover}`}
+        {/* Tabs */}
+        <div
+            className={`flex justify-center space-x-8 shadow-lg font-semibold ${currentTheme.cardsBackground} ${currentTheme.textSecondary}`}
+        >
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              className={`my-1 hover:${currentTheme.textHover} ${
+                openTab === tab.id ? `font-semibold ${currentTheme.textHover}` : ''
+              }`}
+              onMouseEnter={() => setOpenTab(tab.id)}
             >
-              {subcategory.title}
-            </a>
-            <hr className={`my-2 w-[5vw] mx-left ${currentTheme.border}`} />
-            {/* Subcategory Items */}
-            <ul>
-              {subcategory.items.map((item) => (
-                <li key={item.title} className="py-1">
-                  <a
-                    href={item.href}
-                    className={`${currentTheme.textSecondary} hover:${currentTheme.textHover}`}
+              {tab.title}
+            </button>
+          ))}
+        </div>
+  
+        {/* Dropdown Content */}
+        {openTab &&
+          tabs.find((tab) => tab.id === openTab)?.subcategories?.length > 0 && (
+            <div
+              className={`px-[25%] shadow-md z-20 flex w-full absolute top-full left-0 ${currentTheme.cardsBackground}`}
+            >
+              {tabs
+                .find((tab) => tab.id === openTab)
+                .subcategories.map((subcategory) => (
+                  <div
+                    key={subcategory.title}
+                    className="py-6 px-16"
                   >
-                    {item.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-    </div>
-  )}
-    </div>
-  );
-};
-
-export default Dropdown;
+                    {/* Subcategory Title */}
+                    <a
+                      href={subcategory.href}
+                      className={`${currentTheme.textSecondary} hover:${currentTheme.textHover} font-semibold`}
+                    >
+                      {subcategory.title}
+                    </a>
+                    <hr className={`my-2 w-[5vw] mx-left  ${currentTheme.border}`} />
+                    {/* Subcategory Items */}
+                    <ul>
+                      {subcategory.items.map((item) => (
+                        <li key={item.title} className="py-1">
+                          <a
+                            href={item.href}
+                            className={` hover:${currentTheme.textHover} font-semibold ${currentTheme.textSecondary}`}
+                          >
+                            {item.title}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+            </div>
+          )}
+      </div>
+    );
+  };
+  
+  export default Dropdown;
