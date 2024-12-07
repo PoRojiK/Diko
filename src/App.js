@@ -12,6 +12,7 @@ import Profile from './frontend/pages/Profile';
 import Register from './frontend/pages/Register';
 
 
+
 const App = () => {
   const [darkTheme, setDarkTheme] = useState(false);
 
@@ -46,6 +47,7 @@ const App = () => {
             <Route path="/profile" element={<Profile currentTheme={currentTheme} />} />
             <Route path="/notifications" element={<Notifications currentTheme={currentTheme} />} />
             <Route path="/register" element={<Register currentTheme={currentTheme} />} />
+
 
           </Routes>
         </main>
