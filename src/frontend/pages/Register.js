@@ -2,53 +2,42 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Навигация после успешной регистрации
 import axios from 'axios'; // Для отправки запросов на бэкенд
 
-const Register = ({ currentTheme }) => {
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-  });
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState(false);
 
-  const navigate = useNavigate();
+  function Register({currentTheme}) {
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
 
-  // Обработчик изменения полей формы
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setMessage('');
 
-  // Обработчик отправки формы
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-  
-    if (formData.password !== formData.confirmPassword) {
-      setError('Пароли не совпадают');
-      return;
-    }
-  
-    try {
-      // Используем относительный путь для запросов
-      const response = await axios.post('/backend/api/register', {
-        username: formData.username,
-        email: formData.email,
-        password: formData.password,
-      });
-  
-      if (response.status === 201) {
-        setSuccess(true);
-        setTimeout(() => navigate('/login'), 2000); // Перенаправление на страницу логина
-      }
-    } catch (err) {
-      setError(err.response?.data?.message || 'Ошибка регистрации');
-    }
-  };
-  
+        try {
+            const response = await axios.post(
+                'http://ryuo.store/src/backend/api/register.php', // Замените на URL вашего PHP-скрипта
+                {
+                    username,
+                    email,
+                    password
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }
+            );
+
+            setMessage(response.data.message || 'Регистрация успешна.');
+            setUsername('');
+            setEmail('');
+            setPassword('');
+        } catch (error) {
+            setMessage(
+                error.response?.data?.error || 'Ошибка при отправке данных.'
+            );
+        }
+    };
 
   return (
     <div className={`flex justify-center items-center min-h-screen ${currentTheme.mainBackground} ${currentTheme.text}`}>
