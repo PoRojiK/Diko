@@ -7,8 +7,8 @@ import {
 } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom'; // Для навигации
 import logo from '../icons/logo.svg';
-import ProfileDropdown from './ProfileDropdown';
-import { fetchUserData } from '../services/userService'; // Сервис для получения данных пользователя
+import ProfileDropdown from './ProfileDropdown.js';
+import { fetchUserData } from '../services/userService.js'; // Сервис для получения данных пользователя
 
 const Navbar = ({ darkTheme, handleThemeToggle, currentTheme }) => {
   const [searchTerm, setSearchTerm] = useState('');

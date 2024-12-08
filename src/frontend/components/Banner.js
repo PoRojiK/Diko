@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
-import { darkThemeColors, lightThemeColors } from './theme';
+import { darkThemeColors, lightThemeColors } from './theme.js';
 
 const banners = [
   { id: 1, image: '/images/banners/banner1.jpg', title: 'Banner 1' },

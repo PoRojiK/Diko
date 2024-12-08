@@ -1,15 +1,15 @@
 import React, { useState } from 'react'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
-import Navbar from './frontend/components/Navbar'; 
-import Banner from './frontend/components/Banner'; 
-import Categories from './frontend/components/Categories'; 
-import NavigationPanel from './frontend/components/NavigationPanel'; 
-import { darkThemeColors, lightThemeColors } from './frontend/components/theme'; 
-import WishList from './frontend/pages/WishList'; 
-import Cart from './frontend/pages/Cart'; 
-import Notifications from './frontend/pages/Notifications';
-import Profile from './frontend/pages/Profile';
-import Register from './frontend/pages/Register';
+import Navbar from './frontend/components/Navbar.js'; 
+import Banner from './frontend/components/Banner.js'; 
+import Categories from './frontend/components/Categories.js'; 
+import NavigationPanel from './frontend/components/NavigationPanel.js'; 
+import { darkThemeColors, lightThemeColors } from './frontend/components/theme.js'; 
+import WishList from './frontend/build/WishList.js'; 
+import Cart from './frontend/build/Cart.js'; 
+import Notifications from './frontend/build/Notifications.js';
+import Profile from './frontend/build/Profile.js';
+import Register from './frontend/build/Register.js';
 
 
 

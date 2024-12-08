@@ -1,6 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Content-Type");
+header('Access-Control-Allow-Methods: POST');
 header("Content-Type: application/json");
 
 // Подключение к базе данных
@@ -15,6 +16,17 @@ $conn = new mysqli($host, $user, $password, $dbname);
 if ($conn->connect_error) {
     die(json_encode(["error" => "Ошибка подключения к базе данных: " . $conn->connect_error]));
 }
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    echo json_encode(['error' => 'Method Not Allowed']);
+    exit;
+}
+
+// Обработка данных
+$username = $_POST['username'] ?? '';
+$email = $_POST['email'] ?? '';
+$password = $_POST['password'] ?? '';
 
 // Чтение данных из POST-запроса
 $data = json_decode(file_get_contents("php://input"), true);

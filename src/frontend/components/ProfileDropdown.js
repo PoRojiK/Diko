@@ -7,7 +7,7 @@ import {
   AiOutlineLogout,
 } from 'react-icons/ai';
 import { FaMoon } from 'react-icons/fa';
-import { darkThemeColors, lightThemeColors } from './theme';
+import { darkThemeColors, lightThemeColors } from './theme.js';
 
 const ProfileDropdown = ({ darkTheme, handleThemeToggle }) => {
     const currentTheme = darkTheme ? darkThemeColors : lightThemeColors;
