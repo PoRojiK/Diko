@@ -36,7 +36,7 @@ function Register({ currentTheme }) {
 
         try {
             const response = await axios.post(
-                'http://ryuo.store/src/backend/api/register.php', // URL вашего PHP-скрипта
+                'https://ryuo.store/src/backend/api/register.php', // URL вашего PHP-скрипта
                 {
                     username: formData.username,
                     email: formData.email,
